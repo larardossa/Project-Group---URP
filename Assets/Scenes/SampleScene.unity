@@ -289,13 +289,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.31185132, y: 0.686597, z: -0.49140784, w: -0.43571982}
-  m_LocalPosition: {x: 0, y: 16.37, z: 0}
+  m_LocalRotation: {x: 0.2591562, y: -0, z: -0, w: 0.96583545}
+  m_LocalPosition: {x: 0.20806885, y: 3.274094, z: -4.236906}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1024719841}
-  m_LocalEulerAnglesHint: {x: 24.74, y: 0, z: 0}
+  m_Father: {fileID: 1551786310}
+  m_LocalEulerAnglesHint: {x: 30.04, y: 0, z: 0}
 --- !u!114 &330585547
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -698,6 +698,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8390188776747339362, guid: ca0dce541d7415341be48fdb82b4e9c7,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8ea47efe66ffe5e43be2c43342f8dace, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -733,7 +738,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1705047433}
-  - {fileID: 330585546}
   - {fileID: 1339419657}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -985,7 +989,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1339419657
 Transform:
   m_ObjectHideFlags: 0
@@ -1221,7 +1225,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6687e370b8318a41a1f719a986b805b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 7
+  speed: 20
 --- !u!136 &1551786307
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1309,6 +1313,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1080669594}
+  - {fileID: 330585546}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &1551786311
@@ -1336,7 +1341,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 80
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!1 &1641095426
 GameObject:
@@ -1719,7 +1724,7 @@ Terrain:
   m_TreeCrossFadeLength: 5
   m_TreeMaximumFullLODCount: 50
   m_DetailObjectDistance: 80
-  m_DetailObjectDensity: 1
+  m_DetailObjectDensity: 0.06
   m_HeightmapPixelError: 5
   m_SplatMapDistance: 1000
   m_HeightmapMaximumLOD: 0
