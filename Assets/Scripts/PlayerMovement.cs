@@ -17,6 +17,7 @@ public class PlayerMovement : MonoBehaviour
         float verticalInput = Input.GetAxis("Vertical"); // Get the vertical input
 
         var movement = new Vector3(horizontalInput, 0, verticalInput) * speed * Time.deltaTime; // Create a vector for the movement
+        movement.Normalize(); // Normalize the movement vector which will prevent the player from moving faster diagonally
         
         m_Rb.MovePosition(transform.position + movement); // Move the player
 
