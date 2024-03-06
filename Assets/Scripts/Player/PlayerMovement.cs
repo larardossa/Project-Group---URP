@@ -14,21 +14,21 @@ public class PlayerMovement : MonoBehaviour
         mainCamera = Camera.main; // Get the main camera
     }
 
-    void Update()
+    void FixedUpdate()
     {
 
         float horizontalInput = Input.GetAxis("Horizontal"); // Get the horizontal input
         float verticalInput = Input.GetAxis("Vertical"); // Get the vertical input
 
         var movement = new Vector3(horizontalInput, 0, verticalInput); // Create a vector for the movement
-       
+              
 
         Quaternion camRotation = mainCamera.transform.rotation; // Get the camera rotation
         Vector3 targetDirection = camRotation * movement; // Get the direction of the movement
         targetDirection.y = 0; // Set the y to 0 to prevent the player from moving up and down
         targetDirection.Normalize(); //  // Normalize the movement vector which will prevent the player from moving faster diagonally\
 
-        rigidBody.MovePosition(transform.position + targetDirection * speed * Time.deltaTime); // Move the player
+        rigidBody.MovePosition(transform.position + targetDirection * speed * Time.fixedDeltaTime); // Move the player
         rigidBody.MoveRotation(Quaternion.Euler(0, camRotation.eulerAngles.y, 0)); // Rotate the player to the direction of the movement
     }
 }
