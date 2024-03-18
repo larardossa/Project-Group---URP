@@ -12,19 +12,14 @@ public class PlayerSwapScript : MonoBehaviour
 
     public GameObject[] shapes; // Array to hold all the shape prefabs
     private int currentShapeIndex = 0; // Index of the current shape - the player
-
     private bool isShifting = false;
 
     GameObject chickenObject;
 
+    
     private void Awake()
     {
-        //chickenObject = GameObject.Find("Chicken");
-        //chickenObject.SetActive(false);
 
-        // Call the ShiftShape method after 2 seconds (for testing purposes
-
-        Debug.Log("Awake");
     }
 
 
@@ -83,8 +78,6 @@ public class PlayerSwapScript : MonoBehaviour
         newShape.transform.SetParent(shapeContainer);
         newShape.GetComponent<BoxCollider>().enabled = false;
 
-        //chickenObject.SetActive(true);
-        //Destroy(shapes[0]);
         Debug.Log("Shape Shifted");
         currentShapeIndex++;
         if (currentShapeIndex >= shapes.Length)
