@@ -21,8 +21,6 @@ public class AnimalDetectionEditor : Editor
             c = Color.red;
         } 
 
-
-
         Handles.color = new Color(c.r, c.g, c.b, 0.3f);       
         Handles.DrawSolidDisc(m_detection.transform.position, m_detection.transform.up, m_detection.FieldOfVision);
 

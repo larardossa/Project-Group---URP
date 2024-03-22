@@ -14,12 +14,12 @@ public enum AnimalState
 public class Animal : MonoBehaviour
 {
     [Header("Wander)")]
-    public float wanderDistance = 50f; // The distance the animal will wander
+    public float wanderDistance = 20f; // The distance the animal will wander
     public float walkSpeed = 5f; // The speed the animal will walk
-    public float maxWalkTime = 6f; // The maximum time the animal will walk before stopping
+    public float maxWalkTime = 3f; // The maximum time the animal will walk before stopping
 
     [Header("Idle")]
-    public float idleTime = 5f; // The time the animal will be idle
+    public float idleTime = 10f; // The time the animal will be idle
 
     protected NavMeshAgent navMeshAgent; // The nav mesh agent component so we can separate the animal type
     protected AnimalState currentState = AnimalState.Idle; // The current state of the animal

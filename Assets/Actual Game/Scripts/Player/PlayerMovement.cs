@@ -7,6 +7,8 @@ public class PlayerMovement : MonoBehaviour
 {
     public float speed;
     public bool isHidden = false;
+    public bool isInsideBush = false;
+    
     private Rigidbody rigidBody;
     private Camera mainCamera;
     void Awake()
@@ -23,7 +25,6 @@ public class PlayerMovement : MonoBehaviour
 
         var movement = new Vector3(horizontalInput, 0, verticalInput); // Create a vector for the movement
               
-
         Quaternion camRotation = mainCamera.transform.rotation; // Get the camera rotation
         Vector3 targetDirection = camRotation * movement; // Get the direction of the movement
         targetDirection.y = 0; // Set the y to 0 to prevent the player from moving up and down
@@ -49,4 +50,5 @@ public class PlayerMovement : MonoBehaviour
             }
         }
     }
+
 }

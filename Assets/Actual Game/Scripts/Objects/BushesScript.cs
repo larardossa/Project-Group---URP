@@ -4,16 +4,20 @@ using UnityEngine;
 
 public class BushesScript : MonoBehaviour
 {
-    public GameObject player;
-
+    private static PlayerMovement playerMovement = null;
+    private void OnTriggerEnter(Collider other)
+    {
+        playerMovement.isInsideBush = true;
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        playerMovement.isInsideBush = false;
+    }
     private void Awake()
     {
-        player.GetComponent<PlayerMovement>();
-        bool isHidden = player.GetComponent<PlayerMovement>().isHidden;
-    }
-
-    void Update()
-    {
-        
+        if (playerMovement == null)
+        {
+            playerMovement = GameObject.FindGameObjectWithTag("PlayerController").GetComponent<PlayerMovement>();
+        }
     }
 }

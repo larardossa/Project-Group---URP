@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEditor;
 using UnityEngine;
+using static UnityEditor.Experimental.GraphView.GraphView;
 public enum AlertStage
 {
     Peaceful,
@@ -15,25 +17,41 @@ public class AnimalDetectRange : MonoBehaviour
 
     public AlertStage alertStage;
     [Range(0, 100)] public float alertLevel; // 0 - Peaceful, 100 - Alerted (min, max)
+    private static PlayerMovement playerMovement = null;
 
     private void Awake()
+    {     
+        if (playerMovement == null)
+        {
+            playerMovement = GameObject.FindGameObjectWithTag("PlayerController").GetComponent<PlayerMovement>();
+        }
+    }
+    private void Start()
     {
         alertStage = AlertStage.Peaceful;
         alertLevel = 0;
-        Debug.Log("AnimalDetectRange Awake");
+
+        
+        Debug.Log("AnimalDetectRange Awake");      
     }
     private void Update()
     {
+        
         bool playerInSight = false;
-        Collider[] targetsInFov = Physics.OverlapSphere(transform.position, FieldOfVision);
+        
 
-        foreach (Collider colls in targetsInFov)
+        if (!playerMovement.isHidden && !playerMovement.isInsideBush)
         {
-            if (colls.CompareTag("Player"))
+            Collider[] targetsInFov = Physics.OverlapSphere(transform.position, FieldOfVision);
+
+            foreach (Collider colls in targetsInFov)
             {
-                Debug.Log("Player in sight");
-                playerInSight = true;
-                break;
+                if (colls.CompareTag("PlayerController"))
+                {
+                    Debug.Log("Player in sight");
+                    playerInSight = true;
+                    break;
+                }
             }
         }
         UpdateAlertStage(playerInSight);

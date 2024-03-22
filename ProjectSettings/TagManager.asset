@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Chicken
   - Horse
+  - PlayerController
   layers:
   - Default
   - TransparentFX
