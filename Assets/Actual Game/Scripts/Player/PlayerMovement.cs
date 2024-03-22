@@ -6,6 +6,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public float speed;
+    public bool isHidden = false;
     private Rigidbody rigidBody;
     private Camera mainCamera;
     void Awake()
@@ -30,5 +31,22 @@ public class PlayerMovement : MonoBehaviour
 
         rigidBody.MovePosition(transform.position + targetDirection * speed * Time.fixedDeltaTime); // Move the player
         rigidBody.MoveRotation(Quaternion.Euler(0, camRotation.eulerAngles.y, 0)); // Rotate the player to the direction of the movement
+
+        if (Input.GetKeyDown(KeyCode.LeftControl))
+        {
+            isHidden = true;
+            if (isHidden)
+            {
+                speed = 2;
+            }
+        }
+        else if (Input.GetKeyUp(KeyCode.LeftControl))
+        {
+            isHidden = false;
+            if (!isHidden)
+            {
+                speed = 7;
+            }
+        }
     }
 }
