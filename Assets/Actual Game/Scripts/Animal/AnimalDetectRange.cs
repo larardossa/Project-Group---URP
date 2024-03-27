@@ -30,8 +30,7 @@ public class AnimalDetectRange : MonoBehaviour
     {
         alertStage = AlertStage.Peaceful;
         alertLevel = 0;
-
-        
+     
         Debug.Log("AnimalDetectRange Awake");      
     }
     private void Update()
